@@ -1,0 +1,47 @@
+<div class="slider-container">
+  @if (selectedSlide) {
+    <div class="slide-1">
+      <div class="background-image"></div>
+      <div class="slide-content">
+        <h3 class="green">CRÉEZ VOTRE T-SHIRT</h3>
+        <div class="extra-large-title ph-10 color-w b">Nous Imprimons Les</div>
+        <div class="extra-large-title ph-10 color-w b">Meilleurs Designs</div>
+        <div class="extra-large-title ph-10 color-w b">Que Vous Voulez</div>
+        <div class="description"> Profitez de nos services de haute qualité pour créer des t-shirts uniques. Nous vous
+          offrons des impressions de la meilleure qualité avec des designs que vous aimez.
+        </div>
+        <div class="button-container">
+          <div class="button" (click)="navigate()">VOIR PLUS</div>
+        </div>
+      </div>
+    </div>
+  }
+  @if (!selectedSlide) {
+    <div class="slide-2">
+      <div class="background-image"></div>
+      <div class="slide-content">
+        <h3 class="green">CRÉEZ VOTRE T-SHIRT</h3>
+        <div class="extra-large-title ph-10 color-w b">Nous Imprimons Les</div>
+        <div class="extra-large-title ph-10 color-w b">Meilleurs Designs</div>
+        <div class="extra-large-title ph-10 color-w b">Que Vous Voulez</div>
+        <div class="description">
+          <div class="text">Transformez vos idées en réalité avec notre service d'impression de t-shirts. Nous
+            garantissons une qualité exceptionnelle et des designs qui répondent à vos attentes.
+          </div>
+        </div>
+        <div class="button-container">
+          <div class="button" (click)="navigate()">ACHETEZ MAINTENANT</div>
+        </div>
+      </div>
+    </div>
+  }
+
+  <div class="swipe-button-container">
+    <div class="swipe-button" (click)="selectedSlide=!selectedSlide">
+      <img ngSrc="assets/svg/chevron-left-white.svg" height="16" width="16" alt="chevron">
+    </div>
+    <div class="swipe-button" (click)="selectedSlide=!selectedSlide">
+      <img ngSrc="assets/svg/chevron-right-white.svg" height="16" width="16" alt="chevron">
+    </div>
+  </div>
+</div>

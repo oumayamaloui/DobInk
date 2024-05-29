@@ -1,0 +1,97 @@
+<div class="container">
+  <div class="intro">
+    <div class="background-image"></div>
+    <div class="background"></div>
+    <div class="content">
+      <h1>Boutique</h1>
+    </div>
+  </div>
+
+  <div class="shop-item-container">
+
+    <div class="filter-container">
+      <div class="filter">
+        <span class="title">Disponibilité</span>
+        <hr>
+        <div class="filte-text"><input type="radio" name="availability"> En stock (8)</div>
+        <div class="filte-text"><input type="radio" name="availability"> En rupture de stock (0)</div>
+        <div class="buttons">
+          <div class="btn">Effacer</div>
+          <div class="btn">Appliquer</div>
+        </div>
+      </div>
+      <div class="filter">
+        <span class="title">Prix</span>
+        <hr>
+        <p class="filte-text">Le prix le plus élevé est 750,00 €</p>
+        <div class="filte-text">De<br> <input type="text" placeholder="prix min"></div>
+        <div class="filte-text">À<br><input type="text" placeholder="prix max"></div>
+        <div class="buttons">
+          <div class="btn">Effacer</div>
+          <div class="btn">Appliquer</div>
+        </div>
+      </div>
+
+      <div class="filter">
+        <span class="title">Couleur</span>
+        <hr>
+        <div class="filte-text"><input type="checkbox" name="Black"> Noir (2)</div>
+        <div class="filte-text"><input type="checkbox" name="Blue"> Bleu (1)</div>
+        <div class="filte-text"><input type="checkbox" name="Grey"> Gris (2)</div>
+        <div class="filte-text"><input type="checkbox" name="Pink"> Rose (2)</div>
+        <div class="filte-text"><input type="checkbox" name="White"> Blanc (2)</div>
+        <div class="buttons">
+          <div class="btn">Effacer</div>
+          <div class="btn">Appliquer</div>
+        </div>
+      </div>
+
+      <div class="filter">
+        <span class="title">Matériau</span>
+        <hr>
+        <div class="filte-text"><input type="checkbox" name="Ceramic"> Céramique (1)</div>
+        <div class="filte-text"><input type="checkbox" name="Cotton"> Coton (2)</div>
+        <div class="filte-text"><input type="checkbox" name="Leather"> Cuir (1)</div>
+        <div class="filte-text"><input type="checkbox" name="Paper"> Papier (1)</div>
+        <div class="filte-text"><input type="checkbox" name="Plastic"> Plastique (1)</div>
+        <div class="buttons">
+          <div class="btn">Effacer</div>
+          <div class="btn">Appliquer</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="shop-item">
+      <div class="items">
+        <div class="display">
+          <div class="left-side"></div>
+          <div class="right-side">
+            Trier par
+            <select>
+              <option>En vedette</option>
+              <option>Meilleures ventes</option>
+              <option>Alphabétique A-Z</option>
+              <option>Alphabétique Z-A</option>
+              <option>Prix croissant</option>
+              <option>Prix décroissant</option>
+              <option>Date ancienne à récente</option>
+              <option>Date récente à ancienne</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="products">
+          @for (item of product; track item) {
+            @if (category === 'shop' || comparing(category, item.category)) {
+              <app-product-card [imageDimentions]="[200,200]" [product]="item"
+                                (check)="saveSelectedItemToLocalStorage(item)"
+                                (addTocart)="addToCart(item._id,'inc')"
+                                (addToWishes)="toggleFavourite(item._id)">
+              </app-product-card>
+            }
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

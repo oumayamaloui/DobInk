@@ -1,0 +1,80 @@
+:host {
+  height: 100%;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: "Kumbh Sans", sans-serif;
+
+    .hover-color {
+      border-radius: 15px;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      background-color: #df0074;
+      display: none;
+      opacity: 0.3;
+      top: 0;
+      left: 0;
+    }
+
+    .image-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+
+      .image {
+
+        padding:  15px;
+      }
+
+      .button-container {
+        padding-bottom: 1rem;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: space-between;
+
+        .button {
+          height: 40px;
+          width: 40px;
+          border-radius: 100%;
+          display: flex;
+          align-items: center;
+          background: #df0074;
+          justify-content: center;
+          opacity: 0;
+          transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Add transition for opacity and transform */
+          transform: translateY(10px);
+
+          &:hover {
+            background: #46a9df;
+
+          }
+        }
+      }
+    }
+
+    &:hover {
+
+      .hover-color{
+        transition: background-color 0.5s;
+        display: block;
+      }
+
+      .image-container {
+        .button-container {
+          .button {
+            opacity: 1;
+            transform: translateY(0)
+          }
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,11 @@
+<div class="best-selling-items">
+
+  @for (item of items(); track item) {
+    @if (item.name === selectedFilter() || selectedFilter() === 'All') {
+      <app-product-card [product]="item"></app-product-card>
+    }
+
+  }
+</div>
+
+

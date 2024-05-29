@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="intro">
+    <div class="background-image"></div>
+    <div class="background"></div>
+    <div class="content">
+      <h1> S'inscrire</h1>
+    </div>
+
+
+  </div>
+
+
+  <div class="contact-form">
+
+    <input class="item" type="text" placeholder="Prénom" [(ngModel)]="firstName">
+    @if (firstName.length <= 0 && clicked) {
+      <span>{{ firstNameError }}</span>
+    }
+    <input class="item" type="text" placeholder="Nom" [(ngModel)]="lastName">
+    @if (lastName.length <= 0 && clicked) {
+      <span>{{ lastNameError }}</span>
+    }
+    <input class="item" type="email" placeholder="Email" [(ngModel)]="email">
+    @if ((!validateEmail(email) || email.length <= 0) && clicked) {
+      <span>{{ emailError }}</span>
+    }
+    <input class="item" type="text" placeholder="Adresse" [(ngModel)]="address">
+    @if (address.length <= 0 && clicked) {
+      <span>{{ addressError }}</span>
+    }
+    <input class="item" type="tel" placeholder="Télephone" [(ngModel)]="phone">
+
+    @if ((phone.length !== 8 && validatePhone(phone)) && clicked) {
+      <span>{{ phoneError }}</span>
+      <span>{{ phone }}</span>
+    }
+    <input class="item" type="password" placeholder="Password" [(ngModel)]="password">
+    @if (password.length < 8 && clicked) {
+      <span>{{ passwordError }}</span>
+    }
+
+    <div class="button" (click)="register()">
+      S'inscrire
+    </div>
+
+
+  </div>
+
+</div>

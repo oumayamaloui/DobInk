@@ -1,0 +1,14 @@
+@if (userRole != 'admin') {
+  @if (!pathTag()) {
+    <app-toolbar [userName]="username" (logout)="logout()"></app-toolbar>
+  }
+  <div [style.padding-top]="pathTag()?'0' :'75px'">
+    <router-outlet></router-outlet>
+  </div>
+  @if (!pathTag()) {
+    <app-footer></app-footer>
+  }
+} @else {
+  <app-container
+  ></app-container>
+}

@@ -1,0 +1,108 @@
+@if (selectedItem) {
+
+
+  <div class="container">
+    <div class="intro">
+      <div class="background-image"></div>
+      <div class="background"></div>
+      <div class="content">
+        <h1>Shop</h1>
+        <h4>Shop / {{ selectedItem.name }}</h4>
+
+      </div>
+    </div>
+    <div class="shop-item-container">
+
+      <div class="product-image">
+        <img src="{{selectedItem.imagePath}}" alt="prod-pic">
+
+      </div>
+
+      <div class="product-description">
+
+        <h2>{{ selectedItem.name }}</h2>
+        <div class="text"> Prix: <span>${{ selectedItem.price }}  </span></div>
+        <div class="text"> Type: <span>{{ selectedItem.category }}</span></div>
+        <div class="customized">
+          <input type="checkbox" [(ngModel)]="isCustomized" name="customized">Personalisé?
+        </div>
+
+        @if (isCustomized) {
+
+          <div class="drop-zone">
+            <ngx-dropzone (change)="onSelect($event)" class="zone">
+              <p>{{ fileName }}</p>
+            </ngx-dropzone>
+          </div>
+        }
+
+        <div class="plus"> Quantité:
+          <div class="dec-inc-btn">
+            <img alt="minus" ngSrc="assets/svg/minus-white.svg" height="14" width="14"
+                 (click)="scale(false)">
+            <div class="number">
+              {{ amount }}
+            </div>
+            <img alt="plus" ngSrc="assets/svg/plus-white.svg" height="14" width="14"
+                 (click)="scale(true)">
+          </div>
+        </div>
+
+        <div class="text"> Description: <span
+          style="color: black; font-weight: 500;">{{ selectedItem.description }}</span>
+        </div>
+
+        <div class="buttons">
+          <div class="btn" (click)="addToCart()"> Ajouter au panier</div>
+        </div>
+
+
+      </div>
+
+
+    </div>
+    <div class="review">
+      <span>Commentaires</span>
+
+      <div class="content">
+        <div class="comments">
+          @for (comment of comments; track comment) {
+            <div class="content">
+              <ul style="padding: 10px  20px;margin: 0">
+                <li><span class="name">{{ comment.name }}: </span>
+                  <span class="text"> {{ comment.description }}</span></li>
+              </ul>
+            </div>
+          }
+        </div>
+        <div class="comment">
+          <textarea [(ngModel)]="comment"></textarea>
+          <div class="btn" (click)="addComment()">Commontez</div>
+        </div>
+
+      </div>
+    </div>
+
+    <p class="question" (click)="toggleOverlay()">Tu as une question?</p>
+
+    <div class="overlay" [ngClass]="{'show': showOverlay}" (click)="handleOverlayClick($event)">
+      <div class="overlay-content" (click)="$event.stopPropagation()">
+        <div class="close" (click)="toggleOverlay()"><img ngSrc="assets/svg/plus.svg" height="16" width="16"></div>
+        <p>Faites-nous part de votre requête!</p>
+        <input [(ngModel)]="name" class="data-entry" type="text" id="name" name="name" placeholder="Prénom">
+        <input [(ngModel)]="email" class="data-entry" type="email" id="email" name="email" placeholder="Email">
+        <input [(ngModel)]="phone" class="data-entry" type="tel" id="tel" name="tel" placeholder="Téléphone">
+        <textarea [(ngModel)]="description" id="question" name="question" placeholder="Sujet"></textarea>
+        <div class="radio">
+          <input (change)="method='email'" type="radio" name="choix" checked>E-mail
+          <input (change)="method='téléphone' " type="radio" name="choix">Téléphone
+          <input type="radio" name="choix" (change)="method='les deux'">Les deux
+        </div>
+        <div class="button" (click)="reclamation()"> Envoyez</div>
+
+      </div>
+    </div>
+  </div>
+}
+
+

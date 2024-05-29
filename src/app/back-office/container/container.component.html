@@ -1,0 +1,884 @@
+<div class="container">
+
+  <div class="menu">
+    <img alt="icon" class="logo" src="assets/logo.png">
+    <div class="element" (click)="add='';selectedElement='Products'"
+         [ngClass]="{'inactive': selectedElement !== 'Products'}">
+      @if (selectedElement === 'Products') {
+        <img alt="icon" ngSrc="assets/svg/back-office/box-white.svg" height="14" width="14" class="icon">
+      } @else {
+        <img alt="icon" ngSrc="assets/svg/back-office/box.svg" height="14" width="14" class="icon">
+      }
+      Products
+
+    </div>
+    <div class="element" (click)="add='';selectedElement='Reclamation non lu'"
+         [ngClass]="{'inactive': selectedElement !== 'Reclamation non lu'}">
+      @if (selectedElement === 'Reclamation non lu') {
+        <img alt="icon" ngSrc="assets/svg/back-office/envelope-white.svg" height="14" width="14" class="icon">
+      } @else {
+        <img alt="icon" ngSrc="assets/svg/back-office/envelope.svg" height="14" width="14" class="icon">
+      }
+      Reclamation non lu
+
+    </div>
+    <div class="element" (click)="add='';selectedElement='Reclamation'"
+         [ngClass]="{'inactive': selectedElement !== 'Reclamation'}">
+      @if (selectedElement === 'Reclamation') {
+        <img alt="icon" ngSrc="assets/svg/back-office/envelope-open-white.svg" height="14" width="14" class="icon">
+      } @else {
+        <img alt="icon" ngSrc="assets/svg/back-office/envelope-open.svg" height="14" width="14" class="icon">
+      }
+      Reclamation Lu
+
+    </div>
+    <div class="element" (click)="add='';selectedElement='Users'" [ngClass]="{'inactive': selectedElement !== 'Users'}">
+      @if (selectedElement === 'Users') {
+
+        <img alt="icon" ngSrc="assets/svg/back-office/users-white.svg" height="14" width="14" class="icon">
+
+      } @else {
+
+        <img alt="icon" ngSrc="assets/svg/back-office/users.svg" height="14" width="14" class="icon">
+      }
+      List d'utilisateur
+    </div>
+    <div class="element" (click)="add='';selectedElement='Commandes'"
+         [ngClass]="{'inactive': selectedElement !== 'Commandes'}">
+      @if (selectedElement === 'Commandes') {
+        <img alt="icon" ngSrc="assets/svg/back-office/delivery-white.svg" height="14" width="14" class="icon">
+
+      } @else {
+        <img alt="icon" ngSrc="assets/svg/back-office/delivery.svg" height="14" width="14" class="icon">
+
+      }
+      Commandes
+    </div>
+    <div class="element" (click)="add='';selectedElement='Contact'"
+         [ngClass]="{'inactive': selectedElement !== 'Contact'}">
+      @if (selectedElement === 'Contact') {
+        <img alt="icon" ngSrc="assets/svg/back-office/comment-read-white.svg" height="14" width="14" class="icon">
+
+      } @else {
+        <img alt="icon" ngSrc="assets/svg/back-office/comment-read.svg" height="14" width="14" class="icon">
+
+      }
+      Contact Lu
+    </div>
+    <div class="element" (click)="add='';selectedElement='Contact non lu'"
+         [ngClass]="{'inactive': selectedElement !== 'Contact non lu'}">
+      @if (selectedElement === 'Contact non lu') {
+        <img alt="icon" ngSrc="assets/svg/back-office/comment-white.svg" height="14" width="14" class="icon">
+
+      } @else {
+        <img alt="icon" ngSrc="assets/svg/back-office/comment.svg" height="14" width="14" class="icon">
+
+      }
+      Contact non lu
+    </div>
+    <div class="element" (click)="add='';selectedElement='newsLetter'"
+         [ngClass]="{'inactive': selectedElement !== 'newsLetter'}">
+      @if (selectedElement === 'newsLetter') {
+        <img alt="icon" ngSrc="assets/svg/back-office/news-white.svg" height="14" width="14" class="icon">
+
+      } @else {
+        <img alt="icon" ngSrc="assets/svg/back-office/news.svg" height="14" width="14" class="icon">
+
+      }
+      NewsLetter
+    </div>
+    <div class="element" (click)="logOut()">
+      Déconnecter
+
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="header">
+
+    </div>
+
+
+    <div class="content">
+      @if (selectedElement === 'Products') {
+        <div class="dashboard">
+
+          <div class="tables ">
+            <div class="table ">
+              <h2>Products</h2>
+              <div style="display: flex ; justify-content: flex-end">
+                <h3 style="cursor: pointer" (click)="add='add'">Ajouter un produit</h3>
+
+              </div>
+              <table>
+                <tr>
+                  <th>Produit</th>
+                  <th>Prix</th>
+                  <th>Offre</th>
+                  <th>Categorie</th>
+                  <th></th>
+                </tr>
+                @for (item of product; track item) {
+                  <tr>
+                    <td>
+                      <div class="name"> {{ item.name }}</div>
+                    </td>
+                    <td>{{ item.price }}DT</td>
+                    <td>{{ item.offer }}%</td>
+                    <td><span class="online">{{ item.category }}</span></td>
+
+                    <td>
+                      <span class="button" (click)=" selectedProduct= item ;toggleOverlay()">Effacer</span>
+                    </td>
+                    <td>
+                      <span class="button" (click)="add='update'; selectedProduct=item">Editer</span>
+                    </td>
+                  </tr>
+                }
+              </table>
+            </div>
+            <div class="details" [ngClass]="{closed:add===''}">
+              @if (add === 'add') {
+                <h2>Ajouter un produit</h2>
+                <div class="new-prod">
+
+
+                  <div>
+                    <div class="form-item">Nom du produit<input [(ngModel)]="newProductName" type="text"></div>
+                    <div class="form-item">Prix<input [(ngModel)]="newProductPrice" type="text"></div>
+                    <div class="form-item">Catégorie
+
+                      <select [(ngModel)]="category">
+                        <option selected>Imperssion numerique</option>
+                        <option>Marketing digital</option>
+                        <option>Impression grandformat</option>
+                        <option>Conception graphique</option>
+                      </select></div>
+                    <div class="form-item">Description<textarea [(ngModel)]="newProductDescription"></textarea></div>
+
+                    <div class="form-item">
+                      <div class="drop-zone">
+                        <ngx-dropzone (change)="onSelect($event)" class="zone">
+                          {{ fileName }}
+                        </ngx-dropzone>
+                      </div>
+
+                    </div>
+                    <div class="button" (click)="addProduct()"> Ajouter</div>
+                  </div>
+                </div>
+              } @else if (add === 'update') {
+                <h2>Editer un produit</h2>
+                <div class="new-prod">
+
+
+                  <div>
+                    <div class="form-item">Nom du produit<input [(ngModel)]="selectedProduct.name" type="text"></div>
+                    <div class="form-item">Prix<input [(ngModel)]="selectedProduct.price" type="text"></div>
+                    <div class="form-item">Offre<input [(ngModel)]="selectedProduct.offer" type="text">
+                      @if ((parseInt(selectedProduct.offer)) < 0 && parseInt(selectedProduct.offer) < 100 || clicked) {
+                        <span style="color: red"> choisir un numéro entre 0-100</span>
+                      }
+
+                    </div>
+                    <div class="form-item">Catégorie
+                      <select [(ngModel)]="selectedProduct.category">
+                        <option selected>Imperssion numerique</option>
+                        <option>Marketing digital</option>
+                        <option>Impression grandformat</option>
+                        <option>Conception graphique</option>
+                      </select></div>
+                    <div class="form-item">Description<textarea [(ngModel)]="selectedProduct.description"></textarea>
+                    </div>
+
+                    <div class="form-item">
+                      <div class="drop-zone">
+                        <ngx-dropzone (change)="onSelect($event)" class="zone">
+                          {{ fileName }}
+                        </ngx-dropzone>
+                      </div>
+
+                    </div>
+                    <div class="button" (click)="updateProduct()">Confirmer</div>
+                  </div>
+                </div>
+              }
+            </div>
+
+          </div>
+        </div>
+      }
+      @if (selectedElement === 'Reclamation non lu') {
+        <div class="dashboard">
+          <div class="tables ">
+            <div class="table ">
+              <h2>Reclamation</h2>
+              <table>
+                <tr>
+                  <th>Client</th>
+                  <th>Produit</th>
+                  <th>Email</th>
+                  <th>Status</th>
+                  <th>Metode</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+                @for (item of reclamation; track item) {
+                  @if (item.status === 'non lu') {
+                    <tr>
+                      <td>
+                        <div class="name"> {{ item.name }}</div>
+                      </td>
+                      <td>{{ item.product }}</td>
+                      <td>{{ item.email }}</td>
+                      <td><span class="online">{{ item.status }}</span></td>
+                      <td><span class="name">{{ item.method }}</span></td>
+
+                      <td>
+                      <span class="button"
+                            (click)="add='reply'; selectedReclamation=item; reclamationStatus=selectedReclamation.status">Rependre</span>
+                      </td>
+                      <td>
+                      <span class="button"
+                            (click)="add='add'; selectedReclamation=item; reclamationStatus=selectedReclamation.status">Editer</span>
+                      </td>
+                    </tr>
+                  }
+
+
+                }
+              </table>
+            </div>
+            <div class="details" [ngClass]="{closed:add===''}">
+              @if (add === 'add') {
+                <h2>Gestion du reclamation</h2>
+                <div class="new-prod">
+
+
+                  <div>
+                    <div class="form-item">Status
+                      <select [(ngModel)]="selectedReclamation.status">
+                        <option>non lu</option>
+                        <option>Lu</option>
+                      </select>
+
+                    </div>
+
+                    <div class="form-item">Description
+
+                      <span>{{ selectedReclamation.description }}</span></div>
+
+
+                    <div class="button" (click)="updateReclamation()"> valider</div>
+                  </div>
+                </div>
+              } @else if (add === 'reply') {
+                <h2>Gestion du reclamation</h2>
+                <h3>{{ selectedReclamation.name }}</h3>
+                <div class="new-prod">
+
+                  <div>
+                    <div class="form-item">Sujet<input [(ngModel)]="emailSubject" type="text"></div>
+                    <div class="form-item">Description<textarea [(ngModel)]="emailBody"></textarea></div>
+
+                    <div class="button" (click)="sendEmail(selectedReclamation.email)"> Envoyer</div>
+                  </div>
+                </div>
+              }
+            </div>
+
+          </div>
+        </div>
+      }
+      @if (selectedElement === 'Reclamation') {
+        <div class="dashboard">
+          <div class="tables ">
+            <div class="table ">
+              <h2>Reclamation</h2>
+              <table>
+                <tr>
+                  <th>Client</th>
+                  <th>Produit</th>
+                  <th>Email</th>
+                  <th>Status</th>
+                  <th>Metode</th>
+                  <th></th>
+                </tr>
+                @for (item of reclamation; track item) {
+                  @if (item.status === 'Lu') {
+                    <tr>
+                      <td>
+                        <div class="name"> {{ item.name }}</div>
+                      </td>
+                      <td>{{ item.product }}</td>
+                      <td>{{ item.email }}</td>
+                      <td><span class="online">{{ item.status }}</span></td>
+                      <td><span class="name">{{ item.method }}</span></td>
+
+
+                      <td>
+                      <span class="button"
+                            (click)="add='add'; selectedReclamation=item; reclamationStatus=selectedReclamation.status">Editer</span>
+                      </td>
+                    </tr>
+                  }
+                }
+              </table>
+            </div>
+            <div class="details" [ngClass]="{closed:add===''}">
+              @if (add === 'add') {
+                <h2>Gestion du reclamation</h2>
+                <div class="new-prod">
+
+
+                  <div>
+                    <div class="form-item">Status
+                      <select [(ngModel)]="selectedReclamation.status">
+                        <option>non lu</option>
+                        <option>Lu</option>
+                      </select>
+
+                    </div>
+
+                    <div class="form-item">Description
+
+                      <span>{{ selectedReclamation.description }}</span></div>
+
+                    <div class="button" (click)="updateReclamation()"> valider</div>
+                  </div>
+                </div>
+              }
+            </div>
+
+          </div>
+        </div>
+      }
+      @if (selectedElement === 'Contact non lu') {
+        <div class="dashboard">
+          <div class="tables ">
+            <div class="table ">
+              <h2>Contact non lu</h2>
+              <table>
+                <tr>
+                  <th>Client</th>
+                  <th>Télephone</th>
+                  <th>Email</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+                @for (item of contact; track item) {
+                  @if (item.status === 'non lu') {
+                    <tr>
+                      <td>
+                        <div class="name"> {{ item.name }}</div>
+                      </td>
+                      <td>{{ item.phone }}</td>
+                      <td>{{ item.email }}</td>
+                      <td><span class="online">{{ item.status }}</span></td>
+
+                      <td>
+                      <span class="button"
+                            (click)="add='add'; selectedContact=item; contactStatus=selectedContact.status">Editer</span>
+                      </td>
+                    </tr>
+                  }
+
+
+                }
+              </table>
+            </div>
+            <div class="details" [ngClass]="{closed:add===''}">
+              @if (add === 'add') {
+                <h2>Gestion du contact</h2>
+                <div class="new-prod">
+
+
+                  <div>
+                    <div class="form-item">Status
+                      <select [(ngModel)]="selectedContact.status">
+                        <option>non lu</option>
+                        <option>Lu</option>
+                      </select>
+
+                    </div>
+
+                    <div class="form-item">Description
+
+                      <span>{{ selectedContact.description }}</span></div>
+
+                    <div class="button" (click)="updateContact()"> valider</div>
+                  </div>
+                </div>
+              }
+            </div>
+
+          </div>
+        </div>
+      }
+      @if (selectedElement === 'Contact') {
+        <div class="dashboard">
+          <div class="tables ">
+            <div class="table ">
+              <h2>Contact</h2>
+              <table>
+                <tr>
+                  <th>Client</th>
+                  <th>Télephone</th>
+                  <th>Email</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+                @for (item of contact; track item) {
+                  @if (item.status === 'Lu') {
+                    <tr>
+                      <td>
+                        <div class="name"> {{ item.name }}</div>
+                      </td>
+                      <td>{{ item.phone }}</td>
+                      <td>{{ item.email }}</td>
+                      <td><span class="online">{{ item.status }}</span></td>
+                      <td> <span class="button"
+                                 (click)="add='reply'; selectedReclamation=item; reclamationStatus=selectedReclamation.status">Rependre</span>
+                      </td>
+                      <td>
+                      <span class="button"
+                            (click)="add='add'; selectedContact=item; contactStatus=selectedContact.status">Editer</span>
+                      </td>
+                    </tr>
+                  }
+
+
+                }
+              </table>
+            </div>
+            <div class="details" [ngClass]="{closed:add===''}">
+              @if (add === 'add') {
+                <h2>Gestion du contact</h2>
+                <div class="new-prod">
+
+
+                  <div>
+                    <div class="form-item">Status
+                      <select [(ngModel)]="selectedContact.status">
+                        <option>non lu</option>
+                        <option>Lu</option>
+                      </select>
+
+                    </div>
+
+                    <div class="form-item">Description
+
+                      <span>{{ selectedContact.description }}</span></div>
+
+                    <div class="button" (click)="updateContact()"> valider</div>
+                  </div>
+                </div>
+              } @else if (add === 'reply') {
+                <h2>Gestion du reclamation</h2>
+                <h3>{{ selectedContact.name }}</h3>
+                <div class="new-prod">
+
+                  <div>
+                    <div class="form-item">Sujet<input [(ngModel)]="emailSubject" type="text"></div>
+                    <div class="form-item">Description<textarea [(ngModel)]="emailBody"></textarea></div>
+
+                    <div class="button" (click)="sendEmail(selectedContact.email)"> Envoyer</div>
+                  </div>
+                </div>
+              }
+            </div>
+
+          </div>
+        </div>
+      }
+      @if (selectedElement === 'Users') {
+        <div class="dashboard">
+          <div class="tables ">
+            <div class="table ">
+              <h2>List d'utilisateur</h2>
+              <table>
+                <tr>
+                  <th>Nom</th>
+                  <th>E-mail</th>
+                  <th>Téléphone</th>
+                  <th>status</th>
+                  <th>role</th>
+                  <th></th>
+                </tr>
+                @for (user of userlist; track user) {
+                  <tr>
+                    <td>
+                      <div class="name"> {{ user.username }}</div>
+                    </td>
+                    <td>{{ user.email }}</td>
+                    <td><span class="online">{{ user.phone }}</span></td>
+                    <td>{{ user.status }}
+
+                    </td>
+                    <td>{{ user.role }}</td>
+
+                    <td>
+                      <span class="button" (click)="add='add';selectedUser=user">Editer</span>
+                    </td>
+                  </tr>
+
+                }
+
+              </table>
+            </div>
+            <div class="details" [ngClass]="{closed:add===''}">
+              @if (add === 'add') {
+                <h2>Gestion d'utilisateur</h2>
+                <div class="new-prod">
+
+
+                  <div>
+                    <div style="width: 100% ; align-items: center ; display: flex;justify-content: center">
+                      <h3>{{ selectedUser.username }}</h3></div>
+                    <div class="form-item">Status
+                      <select [(ngModel)]="selectedUser.status">
+                        <option>active</option>
+                        <option>désactivé</option>
+                      </select>
+
+                    </div>
+                    <div class="form-item">Status
+                      <select [(ngModel)]="selectedUser.role">
+                        <option>client</option>
+                        <option>admin</option>
+                      </select>
+
+                    </div>
+
+
+                    <div class="button" (click)="updateUserStatus()"> valider</div>
+                  </div>
+                </div>
+              }
+            </div>
+
+
+          </div>
+        </div>
+
+      }
+      @if (selectedElement === 'newsLetter') {
+        <div class="dashboard">
+          <div class="tables ">
+            <div class="table" style="width: 30vw">
+              <h2>NewsLetter</h2>
+              <table>
+                <tr>
+                  <th>E-mail</th>
+                </tr>
+                @for (sub of subs; track sub) {
+                  <tr>
+                    <td>
+                      <div class="name"> {{ sub.email }}</div>
+                    </td>
+                  </tr>
+
+                }
+
+              </table>
+            </div>
+
+            <div class="email-sender">
+              <div>
+                <label>Subject</label>
+                <input type="text" [(ngModel)]="emailSubject">
+              </div>
+
+              <div>
+                <label>Message</label>
+                <textarea [(ngModel)]="emailBody"></textarea>
+              </div>
+
+              <div class="send-button" (click)="sendEmailToMultipleRecipients()"> Envoyer</div>
+
+            </div>
+
+          </div>
+        </div>
+
+      }
+      @if (selectedElement === 'Commandes') {
+        <div class="dashboard">
+          <div class="tables ">
+            @if (add !== 'add') {
+              <div class="table ">
+                <h2>Commandes</h2>
+                <div class="filter">
+                  <p (click)="selectedFilter='Tous les commandes'" [ngClass]="{
+                  selected:selectedFilter==='Tous les commandes'
+                  }">Tous les commandes</p>
+                  <p (click)="selectedFilter='en cours'" [ngClass]="{
+                  selected:selectedFilter==='en cours'
+                  }">Commandes En cours</p>
+                  <p (click)="selectedFilter='refusée'" [ngClass]="{
+                  selected:selectedFilter==='refusée'
+                  }">Commandes Refusée</p>
+                  <p (click)="selectedFilter='terminée'" [ngClass]="{
+                  selected:selectedFilter==='terminée'
+                  }">Commandes Términée</p>
+
+                </div>
+
+                @if (selectedFilter === 'refusée') {
+                  <table>
+                    <tr>
+                      <th>Nom</th>
+                      <th>E-mail</th>
+                      <th>phone</th>
+                      <th>status</th>
+                      <th>methode</th>
+                      <th>date</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    @for (commande of commandeList; track commande) {
+                      @if (commande.status === 'refusée') {
+                        <tr>
+                          <td>
+                            <div class="name"> {{ getClientNamesFromId(commande.userId) }}</div>
+                          </td>
+                          <td>{{ getClientEmailFromId(commande.userId) }}</td>
+                          <td><span class="online">{{ getClientPhoneFromId(commande.userId) }}</span></td>
+
+                          <td>
+                        <span
+                          [ngStyle]="{'color': getStatusColor(commande.status)}">{{ commande.status }}</span></td>
+                          <td>
+                            <div class="name"> {{ commande.payment }}</div>
+                          </td>
+                          <td>
+                            <div class="name"> {{ formatDateToDDMMYYYY(commande.createdAt) }}</div>
+                          </td>
+                          <td (click)="add='add';selectedCommande=commande">
+                            <img ngSrc="assets/svg/eye.svg" height="16" width="16">
+                          </td>
+
+                        </tr>
+                      }
+                    }
+
+                  </table>
+                }
+
+                @if (selectedFilter === 'en cours') {
+                  <table>
+                    <tr>
+                      <th>Nom</th>
+                      <th>E-mail</th>
+                      <th>phone</th>
+                      <th>status</th>
+                      <th>methode</th>
+                      <th>date</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    @for (commande of commandeList; track commande) {
+                      @if (commande.status === 'en cours') {
+                        <tr>
+                          <td>
+                            <div class="name"> {{ getClientNamesFromId(commande.userId) }}</div>
+                          </td>
+                          <td>{{ getClientEmailFromId(commande.userId) }}</td>
+                          <td><span class="online">{{ getClientPhoneFromId(commande.userId) }}</span></td>
+
+                          <td>
+                        <span
+                          [ngStyle]="{'color': getStatusColor(commande.status)}">{{ commande.status }}</span></td>
+                          <td>
+                            <div class="name"> {{ commande.payment }}</div>
+                          </td>
+                          <td>
+                            <div class="name"> {{ formatDateToDDMMYYYY(commande.createdAt) }}</div>
+                          </td>
+                          <td (click)="add='add';selectedCommande=commande">
+                            <img ngSrc="assets/svg/eye.svg" height="16" width="16">
+                          </td>
+
+                        </tr>
+                      }
+                    }
+
+                  </table>
+                }
+
+                @if (selectedFilter === 'terminée') {
+                  <table>
+                    <tr>
+                      <th>Nom</th>
+                      <th>E-mail</th>
+                      <th>phone</th>
+                      <th>status</th>
+                      <th>methode</th>
+                      <th>date</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    @for (commande of commandeList; track commande) {
+                      @if (commande.status === 'terminée') {
+                        <tr>
+                          <td>
+                            <div class="name"> {{ getClientNamesFromId(commande.userId) }}</div>
+                          </td>
+                          <td>{{ getClientEmailFromId(commande.userId) }}</td>
+                          <td><span class="online">{{ getClientPhoneFromId(commande.userId) }}</span></td>
+
+                          <td>
+                        <span
+                          [ngStyle]="{'color': getStatusColor(commande.status)}">{{ commande.status }}</span></td>
+                          <td>
+                            <div class="name"> {{ commande.payment }}</div>
+                          </td>
+                          <td>
+                            <div class="name"> {{ formatDateToDDMMYYYY(commande.createdAt) }}</div>
+                          </td>
+                          <td (click)="add='add';selectedCommande=commande">
+                            <img ngSrc="assets/svg/eye.svg" height="16" width="16">
+                          </td>
+
+                        </tr>
+                      }
+                    }
+
+                  </table>
+                }
+
+                @if (selectedFilter === 'Tous les commandes') {
+                  <table>
+                    <tr>
+                      <th>Nom</th>
+                      <th>E-mail</th>
+                      <th>phone</th>
+                      <th>status</th>
+                      <th>methode</th>
+                      <th>date</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    @for (commande of commandeList; track commande) {
+
+                      <tr>
+                        <td>
+                          <div class="name"> {{ getClientNamesFromId(commande.userId) }}</div>
+                        </td>
+                        <td>{{ getClientEmailFromId(commande.userId) }}</td>
+                        <td><span class="online">{{ getClientPhoneFromId(commande.userId) }}</span></td>
+
+                        <td>
+                        <span
+                          [ngStyle]="{'color': getStatusColor(commande.status)}">{{ commande.status }}</span></td>
+                        <td>
+                          <div class="name"> {{ commande.payment }}</div>
+                        </td>
+                        <td>
+                          <div class="name"> {{ formatDateToDDMMYYYY(commande.createdAt) }}</div>
+                        </td>
+                        <td (click)="add='add';selectedCommande=commande">
+                          <img ngSrc="assets/svg/eye.svg" height="16" width="16">
+                        </td>
+
+                      </tr>
+
+                    }
+
+                  </table>
+                }
+
+
+              </div>
+            }
+            <div class="commande-management" [ngClass]="{closed:add===''}">
+              @if (add === 'add') {
+                <div class="w-100  flex flex-end">
+                  <img style="rotate: 45deg; cursor: pointer" ngSrc="assets/svg/plus.svg" height="16" width="16"
+                       (click)="add=''">
+                </div>
+                <h2>Gestion du Commande</h2>
+                <div class="new-prod">
+                  <div
+                    style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 20px">
+                    <div class="form-item">Status
+                      <select [(ngModel)]="selectedCommande.status">
+                        <option>en cours</option>
+                        <option>refusée</option>
+                        <option>terminée</option>
+                      </select>
+
+                    </div>
+                    <div class="form-item"><span style="visibility: hidden">s</span>
+                      <div class="button" (click)="updateCommande()"> Changer</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="table">
+                  <table>
+                    <tr>
+                      <th>Nom</th>
+                      <th>Personalisée</th>
+                      <th>Prix</th>
+                      <th>Quantité</th>
+                      <th>Offre</th>
+                    </tr>
+                    @for (item of selectedCommande.items; track item) {
+                      <tr>
+                        <td>{{ getProductNamesFromId(item.productId) }}</td>
+                        @if (item.filePath) {
+                          <td>
+                            <a [attr.href]="item.filePath" target="_blank">
+                              <img [src]="item.filePath" style="width: 100px; height: 40px">
+                            </a>
+                          </td>
+                        } @else {
+                          <td>Non</td>
+                        }
+
+
+                        <td>${{ getProductPriceFromId(item.productId) }}</td>
+                        <td>{{ item.amount }}</td>
+                        <td>{{ getProductOffreFromId(item.productId) }}%</td>
+                      </tr>
+                    }
+
+                    <tr>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th>Total:${{ total() }}</th>
+                    </tr>
+
+                  </table>
+                </div>
+
+              }
+            </div>
+
+          </div>
+
+        </div>
+
+      }
+
+    </div>
+
+
+  </div>
+
+
+  <div class="overlay" [ngClass]="{'show': showOverlay}" (click)="handleOverlayClick($event)">
+    <div class="overlay-content" (click)="$event.stopPropagation()">
+      <div class="close" (click)="toggleOverlay()"><img ngSrc="assets/svg/plus.svg" height="16" width="16"></div>
+      <p>Voulez-vous supprimer cet élément ?</p>
+      <div class="buttons">
+        <button class="cancel-button" (click)="toggleOverlay()">Annuler</button>
+        <button class="delete-button" (click)="deleteProduct(selectedProduct)">Supprimer</button>
+      </div>
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,45 @@
+:host {
+  width: 80% !important;
+
+
+  .best-sellings-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    .product {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .filter {
+        width: 80% !important;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 50px;
+        padding-top: 30px;
+
+
+        .filter-list {
+          cursor: pointer;
+          font-weight: 600;
+          font-size: 16px;
+
+          &:hover {
+            color: #df0074;
+
+          }
+        }
+
+      }
+
+
+    }
+
+  }
+}

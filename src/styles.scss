@@ -1,0 +1,139 @@
+body {
+  .snackbar {
+    position: fixed;
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+
+    .mdc-snackbar__surface {
+      box-shadow: none;
+    }
+
+  }
+
+  margin: 0;
+
+  .b {
+    font-weight: bold;
+  }
+
+
+  .bg-shade-green {
+    background-color: #37b546;
+  }
+
+  .bg-shade-orange {
+    background-color: #fc843c;
+  }
+
+  .bg-shade-red {
+    background-color: #fc5434;
+  }
+
+  .bg-shade-blue {
+    background-color: #007aff;
+  }
+
+  .small-title {
+    font-family: "Kumbh Sans", sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+  }
+
+  .green {
+    color: #46a9df;
+  }
+
+  .orange {
+    color: #df0074;
+  }
+
+  .large-title {
+    font-size: 48px;
+  }
+
+  .medium-title {
+    font-size: 24px;
+  }
+
+  .extra-large-title {
+    font-size: 66px;
+  }
+
+  .color-b {
+    color: black;
+  }
+
+  .color-w {
+    color: white;
+  }
+
+  .pl-10 {
+    padding-left: 10px;
+  }
+
+  .pr-10 {
+    padding-right: 10px;
+  }
+
+  .ph-10 {
+    padding: 10px 0;
+  }
+
+  .pt-5r {
+    padding-top: 5rem;
+  }
+
+  .pt-2r {
+    padding-top: 2rem;
+  }
+
+
+  .grey {
+    color: grey;
+  }
+
+  .f-16 {
+    font-size: 16px;
+  }
+
+  .f-18 {
+    font-size: 18px;
+    font-family: "Kumbh Sans", sans-serif;
+
+  }
+
+  .f-24 {
+    font-size: 24px;
+    font-family: "Kumbh Sans", sans-serif;
+
+  }
+
+  .pt-1r {
+    padding-top: 1rem;
+  }
+
+  .f-28 {
+    font-size: 28px;
+  }
+
+  .fw-500 {
+    font-weight: 500;
+  }
+
+  .h-450 {
+    height: 450px;
+  }
+
+  .w-100 {
+    width: 100%;
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-end {
+    justify-content: flex-end;
+  }
+}

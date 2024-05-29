@@ -1,0 +1,55 @@
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  background: #EBF0F5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .card {
+    width: 25vw;
+    height: 60vh;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .links {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      gap: 20px;
+      padding-top: 5rem;
+
+      span {
+        font-weight: 600;
+        font-size: 20px;
+        cursor: pointer;
+
+        &:hover {
+          color: green;
+        }
+      }
+    }
+
+    p {
+      font-size: 20px;
+      font-weight: bold;
+      color: green;
+    }
+
+    .circle {
+      height: 10rem;
+      width: 10rem;
+      border: 5px solid green;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+

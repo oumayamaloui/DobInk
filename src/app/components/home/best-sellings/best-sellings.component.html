@@ -1,0 +1,18 @@
+<div class="best-sellings-container">
+  <h4 class="green">Our Products</h4>
+  <h1 class="large-title">Best Selling Printings</h1>
+
+  <div class="product">
+    <div class="filter">
+      @for (filter of filter(); track filter) {
+        <div [ngClass]="filter.selected? 'filter-list.svg orange':'filter-list.svg' ">{{ filter.name }}</div>
+      }
+    </div>
+
+    <app-items [items]="items()" [selectedFilter]="'All'"></app-items>
+  </div>
+
+
+
+
+</div>

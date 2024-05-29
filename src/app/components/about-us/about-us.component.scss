@@ -1,0 +1,220 @@
+:host {
+  width: 100%;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+
+    .intro {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      font-family: "Kumbh Sans", sans-serif;
+      width: 100%;
+
+      .background-image {
+        height: 100%;
+        width: 100%;
+        background-image: url("../../.././assets/shirt.jpg");
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      .content {
+        padding: 4rem 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        background-blend-mode: multiply;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+      }
+    }
+
+
+    .section-1 {
+      padding: 2.5rem 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 40px;
+      gap: 40px;
+
+      .item {
+        width: 350px;
+        height: 400px;
+        a{
+          cursor: pointer;
+          text-decoration: none;
+        }
+      }
+    }
+
+    .section-2 {
+      width: 100%;
+      height: 100%;
+      background-color: #1e1e1e;
+      display: flex;
+      justify-content: center;
+
+
+      .container {
+        width: 75%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+
+
+        .left-section {
+          width: 100%;
+          padding: 20px;
+          text-align: start;
+          color: white;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+
+
+          .items {
+            padding: 2rem 0;
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+
+            .icon-container {
+              min-width: 50px;
+              height: 50px;
+              background-color: white;
+              border-radius: 5px;
+              rotate: 45deg;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              img {
+                rotate: -45deg;
+              }
+            }
+
+          }
+
+
+        }
+
+        .right-section {
+          width: 100%;
+          text-align: start;
+          color: white;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          img {
+            max-width: 100%;
+            max-height: 100%;
+          }
+
+        }
+      }
+    }
+
+    .section-3 {
+      padding: 6rem 0;
+      display: flex;
+      width: 75%;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+
+      .items {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 90px;
+          height: 90px;
+          border-radius: 9999px;
+          background-color: #df0074;
+
+
+        }
+
+      }
+    }
+
+    .section-4 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      font-family: "Kumbh Sans", sans-serif;
+      width: 100%;
+
+      .background-image {
+        height: 100%;
+        width: 100%;
+        background-image: url("https://res.cloudinary.com/dwkp2dnfs/image/upload/oz3iknmo2skiy1l5ccgm.jpg");
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      .content {
+        padding: 13rem 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        background-blend-mode: multiply;
+        color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        .description {
+          width: 75%;
+          display: flex;
+          flex-direction: column;
+          gap: 3rem;
+
+          .warranties {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+
+            span {
+              width: 40%;
+              font-size: 18px;
+              font-family: "Kumbh Sans", sans-serif;
+            }
+          }
+        }
+
+      }
+
+
+    }
+
+
+
+  }
+}

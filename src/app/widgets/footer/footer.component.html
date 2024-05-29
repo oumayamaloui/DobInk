@@ -1,0 +1,76 @@
+<div class="footer-container">
+
+  <div class="footer">
+    <div class="information">
+      <h2> Informations</h2>
+      <div class="links">
+        <p>Aide</p>
+        <p (click)="routing('client/profile')">Suivi de commande</p>
+        <p (click)="routing('cart')">Options de paiement</p>
+        <p (click)="routing('')">Retours</p>
+      </div>
+
+    </div>
+    <div class="contact">
+      <h2> Contactez-nous</h2>
+      <div class="info-section">
+        <div class="info">
+          <img alt="home" ngSrc="assets/svg/home.svg" height="16" width="16"><span>7 Rue Habib Bou Guatfa Megrine</span>
+        </div>
+        <div class="info">
+          <img alt="phone" ngSrc="assets/svg/phone.svg" height="16" width="16"><span> +216 95 302 801</span>
+        </div>
+        <div class="info">
+          <img alt="email" ngSrc="assets/svg/envelope.svg" height="16" width="16"><span> Contact&#64;dobink.com</span>
+        </div>
+      </div>
+
+      <div class="social">
+        <a class="social-btn" href="https://www.facebook.com/profile.php?id=100088086051530">
+          <img class="icon1" ngSrc="assets/svg/facebook-orange.svg" height="16" width="16">
+          <img class="icon2" ngSrc="assets/svg/facebook-white.svg" height="16" width="16">
+        </a>
+        <a class="social-btn" href="https://www.instagram.com/dob.ink/">
+          <img class="icon1" ngSrc="assets/svg/instagram-orange.svg" height="16" width="16">
+          <img class="icon2" ngSrc="assets/svg/instagram-white.svg" height="16" width="16">
+        </a>
+        <a class="social-btn" href="https://www.linkedin.com/in/devofbrand-agency/?originalSubdomain=tn">
+          <img class="icon1" ngSrc="assets/svg/linkedin-orange.svg" height="16" width="16">
+          <img class="icon2" ngSrc="assets/svg/linkedin-white.svg" height="16" width="16">
+        </a>
+      </div>
+
+    </div>
+    <div class="information">
+      <h2> Service</h2>
+      <div class="links">
+        <p  (click)="routing('faq')">Questions</p>
+        <p (click)="routing('cart')">Carte</p>
+        <p (click)="routing('shop')">Magasin</p>
+      </div>
+
+    </div>
+    <div class="newsletter">
+      <h2> Newsletter</h2>
+
+      <div class="newsletter-signup">
+        <input type="email" class="email" [(ngModel)]="email">
+        <button class="button" (click)="subscribe()"> S'inscrire</button>
+        <br>
+
+      </div>
+      <div style="display: flex; justify-content: center ; align-items: center; width: 75%;padding: 5px">
+
+        @if (!validateEmail(email) && email.length > 0 && clicked) {
+          <span style="color: red">
+          l'adresse n'est pas valide.
+        </span>
+        }
+      </div>
+      <p style="max-width: 400px; overflow-wrap: normal">Inscrivez-vous avec votre adresse e-mail pour recevoir des nouvelles et mises à jour </p>
+
+    </div>
+  </div>
+
+
+</div>

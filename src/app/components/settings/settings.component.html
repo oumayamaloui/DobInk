@@ -1,0 +1,202 @@
+<div class="container">
+  <div class="intro">
+    <div class="background-image"></div>
+    <div class="background"></div>
+    <div class="content">
+      <h1>Shop</h1>
+    </div>
+  </div>
+
+  <div class="shop-item-container">
+    <div class="settings">
+      <p (click)="changeSettingNav('Account')">Mon Compte</p>
+      <p (click)="changeSettingNav('Commandes')">Mes Commandes</p>
+      <p (click)="changeSettingNav('Wishes')">Ma liste de souhaits</p>
+      <p (click)="changeSettingNav('Information')">Information de compte</p>
+      <p (click)="changeSettingNav('Newsletter')">Abonnements à la newsletter</p>
+    </div>
+    @if (currentSetting === 'Wishes') {
+      <div class="shop-item">
+        <div class="items">
+          <div class="products">
+            @if (wishes) {
+              @for (item of wishes; track item) {
+                <app-product-card (addToWishes)="toggleFavouriteInProfile(item._id)" [imageDimentions]="[200,200]"
+                                  [product]="item"></app-product-card>
+              }
+            } @else {
+              no wishes
+            }
+
+          </div>
+        </div>
+      </div>
+    }
+    @if (currentSetting === 'Account') {
+      <div class="account">
+        <div class="info">
+          <h2>Informations du compte</h2>
+          <hr>
+          <div class="details">
+            <div class="right">
+              <div class="data">
+
+                <h4>Informations de contact</h4>
+                <p>{{ username }}</p>
+                <p>{{ email }}</p></div>
+              <div class="action" (click)="changeSettingNav('Information')">Éditer</div>
+            </div>
+            <div class="right">
+              <div class="data">
+
+                <h4>Newsletters</h4>
+                @if (subscribed) {
+                  <p>Vous êtes abonné à notre newsletter.</p>
+                } @else {
+                  <p>Vous n'êtes pas abonné à notre newsletter.</p>
+                }
+
+              </div>
+              <div class="action" (click)="changeSettingNav('Newsletter')">Éditer</div>
+            </div>
+            <div class="right">
+              <div class="data">
+                <h4>Adresse par défaut</h4>
+                <p style="overflow: auto">{{ address }}
+                </p>
+                <p>Tel: {{ phone }}</p></div>
+              <div class="action" (click)="changeSettingNav('Information')">Éditer</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    }
+    @if (currentSetting === 'Newsletter') {
+
+      <div class="account">
+        <div class="info">
+          <h2>Abonnement à la newsletter
+          </h2>
+          <hr>
+          <div class="details">
+            <div class="info">
+              <p>Options d'abonnement:</p>
+              <div><input type="checkbox" [checked]="subscribed"
+                          (change)="subscribed=!subscribed">Abonnements
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="button-container">
+          <div class="btn" (click)="subscribe()">Sauvegarder</div>
+        </div>
+      </div>
+    }
+    @if (currentSetting === 'Commandes') {
+
+      <div class="account">
+        <div class="info">
+          <h2>Mes commandes
+          </h2>
+          <hr>
+          <div class="table">
+            <table>
+              <tr>
+                <th>Commande n°</th>
+                <th>Date</th>
+                <th>Total de la commande</th>
+                <th>Statut</th>
+                <th>Action</th>
+              </tr>
+              @for (commande of commande; track commande) {
+
+                <tr>
+                  <td>{{ commande._id }}</td>
+                  <td>{{ formatDateToDDMMYYYY(commande.createdAt) }}</td>
+                  <td>{{ total(commande) }}</td>
+                  <td  [ngStyle]="{'color': getStatusColor(commande.status)}">{{ commande.status }}</td>
+                  <td><span (click)="toggleOverlay(); selectedCommande = commande" class="action">Visualiser</span></td>
+                </tr>
+              }
+            </table>
+          </div>
+        </div>
+
+      </div>
+    }
+    @if (currentSetting === 'Information') {
+
+      <div class="account">
+        <div class="info">
+          <h2>Éditer les informations du compte
+          </h2>
+          <hr>
+          <div class="details">
+            <div class="info">
+              <p> Nom:</p>
+              <input type="text" class="input" [(ngModel)]="username">
+            </div>
+            <div class="info">
+              <p> Télephone:</p>
+              <input type="tel" class="input" [(ngModel)]="phone">
+            </div>
+
+            <div class="info">
+              <p> Mot de passe actuel:</p>
+              <input type="password" class="input">
+            </div>
+
+            <div class="info">
+              <p> Adresse:</p>
+              <input type="text" class="input" [(ngModel)]="address">
+            </div>
+            <div class="info">
+              <p> Nouveau mot de passe:</p>
+              <input type="password" class="input">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="button-container">
+          <div class="btn" (click)="update()">Update</div>
+        </div>
+      </div>
+    }
+
+
+  </div>
+  <div class="overlay" [ngClass]="{'show': showOverlay}" (click)="handleOverlayClick($event)">
+    <div class="overlay-content" (click)="$event.stopPropagation()">
+      <div class="close" (click)="toggleOverlay()"><img ngSrc="assets/svg/plus.svg" height="16" width="16"></div>
+      <p>List de produit de cet commande</p>
+      @if (selectedCommande) {
+        <div class="table" style="height: auto;    -ms-overflow-style: none;
+    scrollbar-width: none;">
+          <table>
+            <tr>
+              <th>Product</th>
+              <th>Image</th>
+              <th>Prix</th>
+              <th>Quantité</th>
+            </tr>
+            @for (item of selectedCommande.items; track commande) {
+
+              <tr>
+                <td>{{ getProductNameFromId(item.productId) }}</td>
+                <td><img src="{{getProductImageFromId(item.productId)}}"></td>
+                <td>${{ getProductPriceFromId(item.productId) }}</td>
+                <td>{{ item.amount }}</td>
+              </tr>
+            }
+          </table>
+        </div>
+      }
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="intro">
+    <div class="background-image"></div>
+    <div class="background"></div>
+    <div class="content">
+      <h1>Connexion</h1>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <input class="item" type="email" placeholder="Email" [(ngModel)]="email">
+    <input class="item" type="password" placeholder="Mot de passe" [(ngModel)]="password">
+
+    <div class="button" (click)="login()">
+      Connexion
+    </div>
+    @if (error) {
+
+      <div style="color: red; font-weight: 600;">{{ error }}</div>
+    }
+
+    <div class="other-option">
+      <span routerLink="/forgetPassword" (click)="routing('/forgetPassword')">Mot de passe oublié ?</span>
+      <span routerLink="/signup" (click)="routing('/signup')">Créer un compte</span>
+      <span routerLink="/shop" (click)="routing('/shop')">Retour à la boutique</span>
+    </div>
+  </div>
+</div>

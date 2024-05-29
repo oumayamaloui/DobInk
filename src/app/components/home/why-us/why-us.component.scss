@@ -1,0 +1,55 @@
+:host {
+  width: 100%;
+
+  .why-us-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-image: url("../../../../assets/shirt.jpg");
+    background-size: cover;
+
+
+
+    .container {
+      padding: 5rem 0;
+      width: 75%;
+display: flex;
+      justify-content: flex-end;
+
+
+      .right-section {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        justify-content: flex-start;
+        width: 40vw;
+        padding:5rem 0 ;
+
+        .quality {
+          padding-top: 3rem;
+          justify-content: flex-start;
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          gap: 20px;
+
+          .icon-container {
+            width: 70px;
+
+            .icon {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 9999px;
+              background-color: white;
+              width: 50px;
+              height: 50px;
+            }
+          }
+        }
+      }
+
+
+    }
+  }
+}

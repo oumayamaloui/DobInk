@@ -1,0 +1,38 @@
+:host {
+  width: 100%;
+
+  .about-us-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+
+    .about-us-container {
+      padding: 5rem 0;
+      width: 75%;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+
+      .button {
+        padding: 20px 50px;
+        background-color: #df0074;
+        color: white;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        border-radius: 45px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #46a9df;
+          transition: background-color 0.3s;
+
+        }
+      }
+    }
+  }
+}

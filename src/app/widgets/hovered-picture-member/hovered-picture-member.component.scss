@@ -1,0 +1,146 @@
+:host {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+
+  .container {
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+    &:hover {
+      .shadow-left {
+        display: flex;
+        transition: background-color 0.6s, font-size 0.6s, width 0.6s;
+        background-color: rgba(0, 0, 0, 0.4);
+        width: 50%;
+      }
+
+      .shadow-right {
+        display: flex;
+        transition: background-color 0.6s, font-size 0.6s, width 0.6s;
+        background-color: rgba(0, 0, 0, 0.4);
+        width: 50%;
+
+      }
+    }
+
+    .background-image {
+      height: 100%;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+
+    .shadow-left {
+      font-size: 24px;
+      height: 100%;
+      width: 0;
+      background-color: rgba(0, 0, 0, 0);
+      background-blend-mode: multiply;
+      display: flex;
+      transition: background-color 0.6s, font-size 0.6s, width 0.6s;
+    }
+
+    .shadow-right {
+      height: 100%;
+      width: 0;
+      background-color: rgba(0, 0, 0, 0);
+      background-blend-mode: multiply;
+      transition: background-color 0.6s, font-size 0.6s, width 0.6s;
+    }
+
+    .button-container {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+
+      .button {
+        background-color: rgba(255, 255, 255);
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, background-color 0.5s;
+        cursor: pointer;
+
+        .image-1 {
+          display: flex;
+        }
+
+        .image-2 {
+          display: none
+        }
+
+        &:hover {
+          background-color: #df0074;
+          transition: background-color 0.5s;
+
+          .image-1 {
+            display: none;
+          }
+
+          .image-2 {
+            display: flex;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      .button-container {
+        .button {
+          opacity: 1;
+          transform: translateY(0);
+
+
+        }
+      }
+    }
+
+
+  }
+
+  .identity {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      font-size: 22px;
+      font-family: "Kumbh Sans", sans-serif;
+      font-weight: bold;
+    }
+
+    span {
+      font-size: 18px;
+      font-family: "Kumbh Sans", sans-serif;
+      color: grey;
+    }
+
+
+  }
+}

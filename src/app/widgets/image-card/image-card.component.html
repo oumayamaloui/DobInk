@@ -1,0 +1,31 @@
+<app-card>
+
+  <div class="container">
+
+    <div class="hover-color"></div>
+    <div class="image-container">
+      @if (imagePath()) {
+        <img class="image" height="{{imageDimentions()[0]}}"
+             width="{{imageDimentions()[1]}}"
+             src='{{imagePath()}}' alt="product">
+      } @else {
+        Invalide Image Path
+      }
+
+      <div class="button-container">
+        <div class="button" (click)="addTocart.emit()">
+          <img ngSrc="assets/svg/cart.svg" height="18" width="18" alt="cart">
+        </div>
+        <div class="button" (click)="addToWishes.emit()">
+          <img ngSrc="assets/svg/heart.svg" height="18" width="18" alt="heart">
+        </div>
+        <div class="button" (click)="check.emit()">
+          <img ngSrc="assets/svg/magnify-white.svg" height="18" width="18" alt="magnify">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</app-card>
+

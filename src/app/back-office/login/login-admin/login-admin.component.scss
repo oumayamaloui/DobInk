@@ -1,0 +1,78 @@
+:host {
+  width: 100%;
+  height: 100%;
+
+  .container {
+    background-image: url('https://res.cloudinary.com/dwkp2dnfs/image/upload/d3abwyd86kltbfhoxp2a.jpg');
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+
+    .left-section {
+      width: 72.5vw;
+      min-height: 100vh;
+    }
+
+    .right-section {
+      background: white;
+      width: 27.5vw;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 5rem;
+      padding: 0 1rem;
+
+      img {
+        width: 200px;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+
+        .button {
+          width: 15rem;
+          border-radius: 45px;
+          background: #381d90;
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 18px;
+          cursor: pointer;
+          padding: 0.8rem 1rem;
+        }
+
+        .input {
+          width: 20vw;
+          height: 45px;
+          border-radius: 45px;
+          border: 1px solid rgba(155, 153, 153, 0.2);
+          padding-left: 3rem;
+          font-size: 16px;
+          transition: border 0.4s;
+
+          &:focus {
+            outline: none;
+            transition: border 0.8s;
+            border: 1px solid #381d90;
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}

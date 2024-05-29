@@ -1,0 +1,91 @@
+:host {
+  width: 100%;
+
+  .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .content {
+      padding: 5rem 0;
+      width: 75%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+
+      .section-1 {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        .project-exemple {
+          display: flex;
+          flex-direction: column;
+          gap: 40px;
+
+          .first-line {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            gap: 40px;
+
+            .image-1 {
+              width: 315px;
+              height: 380px;
+              background-size: cover;
+              background-image: url("https://printme-theme.myshopify.com/cdn/shop/files/home-gallery-1.jpg?v=1641445994");
+            }
+
+            .image-2 {
+              width: 315px;
+              height: 380px;
+              background-size: cover;
+              background-image: url("https://printme-theme.myshopify.com/cdn/shop/files/home-gallery-2.jpg?v=1641445997");
+            }
+
+            .image-3 {
+              width: 315px;
+              height: 380px;
+              background-size: cover;
+              background-image: url("https://printme-theme.myshopify.com/cdn/shop/files/home-gallery-3.jpg?v=1641446001");
+            }
+
+            .image-4 {
+              width: 315px;
+              height: 380px;
+              background-size: cover;
+              background-image: url("https://printme-theme.myshopify.com/cdn/shop/files/home-gallery-4.jpg?v=1641446003")
+            }
+          }
+
+          .second-line {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            gap: 40px;
+
+            .image-1 {
+              width: 670px;
+              height: 380px;
+              background-size: cover;
+              background-image: url("https://printme-theme.myshopify.com/cdn/shop/files/home-gallery-5.jpg?v=1641446007");
+            }
+
+            .image-2 {
+              width: 670px;
+              height: 380px;
+              background-size: cover;
+              background-image: url("https://printme-theme.myshopify.com/cdn/shop/files/home-gallery-6.jpg?v=1641446008");
+            }
+          }
+
+        }
+      }
+
+
+
+    }
+
+  }
+}

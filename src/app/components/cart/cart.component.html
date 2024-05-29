@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="intro">
+    <div class="background-image"></div>
+    <div class="background"></div>
+    <div class="content">
+      <h1>VOTRE PANIER</h1>
+    </div>
+  </div>
+
+  <div class="main-section">
+    <div class="left-section">
+      <div class="title">Produits</div>
+      @for (item of cart; track item) {
+        <div class="item">
+          <div class="image">
+            <div class="image"><img src="{{ item.product.imagePath }}" alt="produit"></div>
+          </div>
+          <div class="description">
+            <div class="name">{{ item.product.name }}</div>
+            <div class="item-description">{{ item.product.description }}</div>
+            <div class="price">{{ item.product.price }} €</div>
+            <div class="dec-inc-btn">
+              <img alt="moins" ngSrc="assets/svg/minus-white.svg" height="14" width="14"
+                   (click)="addToCartFromCart(item.product._id,'dec')">
+              <div class="number">
+                {{ item.amount }}
+              </div>
+              <img alt="plus" ngSrc="assets/svg/plus-white.svg" height="14" width="14"
+                   (click)="addToCartFromCart(item.product._id,'inc')">
+            </div>
+            <div class="total"> Total : {{ item.amount * stringToInt(item.product.price) }} €</div>
+          </div>
+          <div class="close" (click)="addToCartFromCart(item.product._id,'del')"><img alt="fermer"
+                                                                                      ngSrc="assets/svg/plus.svg"
+                                                                                      height="16" width="16"></div>
+        </div>
+      }
+      <div class="button-container">
+        <div class="btn" style="visibility:hidden;">Mettre à jour le panier</div>
+        <div class="btn" (click)="routing('shop')"> Continuer vos achats</div>
+      </div>
+
+    </div>
+    <div class="right-section">
+      <div class="title">Résumé de la commande</div>
+      <div class="total">Sous-total : {{ cartItemsTotalPrice }} €</div>
+      <div class="text">Les frais de port, les taxes et les réductions seront calculés lors du paiement.</div>
+      <span>Mode de paiement</span>
+      <div class="mode">
+        <div class="item" > <input style="cursor:pointer;"  type="radio" name="method" (change)="mode=false" checked> Paiement par carte bancaire
+        </div>
+        <div class="item">
+          <input style="cursor:pointer;" type="radio" name="method" (change)="mode=true" > Paiement en espèces à la livraison
+        </div>
+      </div>
+      @if (!mode) {
+        <div class="btn" (click)="redirectToCheckout(cartItemsTotalPrice)">Passer la commande</div>
+      } @else {
+        <div class="btn" (click)="createCommande()">Passer la commande</div>
+      }
+    </div>
+  </div>
+</div>

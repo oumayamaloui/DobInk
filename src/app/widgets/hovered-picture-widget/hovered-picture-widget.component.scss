@@ -1,0 +1,50 @@
+:host {
+  .container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      .description {
+        display: flex;
+        transition: background-color 0.6s, font-size 0.6s, color 0.6s;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.8);
+        font-size: 18px;
+      }
+    }
+
+    .background-image {
+      height: 100%;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .description {
+      font-size: 24px;
+      height: 90%;
+      width: 90%;
+      background-color: rgba(0, 0, 0, 0);
+      background-blend-mode: multiply;
+      color: transparent;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      display: flex;
+      transition: background-color 0.6s, font-size 0.6s, color 0.6s;
+    }
+  }
+}

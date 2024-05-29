@@ -1,0 +1,136 @@
+<div class="container">
+  <div class="intro">
+    <div class="background-image"></div>
+    <div class="background"></div>
+    <div class="content">
+      <h1>À PROPOS</h1>
+    </div>
+  </div>
+
+  <h3 class="green">UN BON RAPPORT QUALITÉ-PRIX À CHAQUE ACHAT !</h3>
+  <span class="large-title b">UN PRODUIT NOUVEAU ET UNIQUE CHAQUE JOUR</span>
+
+  <div class="section-1">
+    @for (product of product; track product) {
+      <div class="item">
+        <a href="https://devofbrand.my.canva.site/presentation">
+          <app-hovered-picture-widget [text]="product.text"
+                                      [imagePath]="product.imagePath"></app-hovered-picture-widget>
+        </a>
+      </div>
+    }
+  </div>
+
+  <div class="section-2">
+    <div class="container">
+      <div class="left-section">
+        <h4>SÉLECTIONNEZ VOS FAVORIS</h4>
+        <h1>UNE SEULE ADRESSE POUR TOUT, DE LA TÊTE AUX PIEDS</h1>
+
+        <p class="f-16">Nous offrons une large gamme de produits pour répondre à tous vos besoins. Découvrez des articles de qualité supérieure et profitez d'une expérience d'achat sans égale.</p>
+
+        <div class="items">
+          <div class="icon-container">
+            <img ngSrc="assets/svg/thumbs-up-orange.svg" height="20" width="20" alt="thumb">
+          </div>
+          <div>
+            <span class="f-28 b">UN PROCESSUS <br> EFFICACE ET RAPIDE</span>
+            <p>Profitez d'un processus d'achat fluide et rapide, conçu pour votre confort et votre satisfaction.</p>
+          </div>
+        </div>
+        <div class="items">
+          <div class="icon-container">
+            <img ngSrc="assets/svg/thumbs-up-orange.svg" height="20" width="20" alt="thumb">
+          </div>
+          <div>
+            <span class="f-28 b">UN SERVICE <br> CLIENT EXEMPLAIRE</span>
+            <p>Notre équipe dédiée est là pour vous aider à chaque étape, garantissant une expérience client exceptionnelle.</p>
+          </div>
+        </div>
+        <div class="items">
+          <div class="icon-container">
+            <img ngSrc="assets/svg/thumbs-up-orange.svg" height="20" width="20" alt="thumb">
+          </div>
+          <div>
+            <span class="f-28 b">UNE QUALITÉ <br> INCOMPARABLE</span>
+            <p>Nous nous engageons à fournir des produits de qualité supérieure, répondant aux plus hauts standards de l'industrie.</p>
+          </div>
+        </div>
+      </div>
+      <div class="right-section">
+        <img src="https://res.cloudinary.com/dwkp2dnfs/image/upload/vyucnlfib1tbc8hrryfg.jpg" alt="picture">
+      </div>
+    </div>
+  </div>
+
+  <div class="section-3">
+    <div class="items">
+      <div class="icon">
+        <img ngSrc="assets/svg/phone-white.svg" height="40" width="40" alt="phone">
+      </div>
+      <p class="f-24 fw-500">940+</p>
+      <span class="f-18 fw-500">IMPRESSIONS RÉUSSIES</span>
+    </div>
+    <div class="items">
+      <div class="icon">
+        <img ngSrc="assets/svg/phone-white.svg" height="40" width="40" alt="phone">
+      </div>
+      <p class="f-24 fw-500">400+</p>
+      <span class="f-18 fw-500">SERVICE CLIENT</span>
+    </div>
+    <div class="items">
+      <div class="icon">
+        <img ngSrc="assets/svg/phone-white.svg" height="40" width="40" alt="phone">
+      </div>
+      <p class="f-24 fw-500">150+</p>
+      <span class="f-18 fw-500">MEMBRES PLATINE</span>
+    </div>
+    <div class="items">
+      <div class="icon">
+        <img ngSrc="assets/svg/phone-white.svg" height="40" width="40" alt="phone">
+      </div>
+      <p class="f-24 fw-500">900+</p>
+      <span class="f-18 fw-500">BONS CADEAUX</span>
+    </div>
+  </div>
+
+  <div class="section-4">
+    <div class="background-image"></div>
+    <div class="content">
+      <div class="description">
+
+        <h1> BIENVENUE CHEZ DOBINK
+        </h1>
+        <div class="warranties">
+          <img ngSrc="assets/svg/check-white.svg" height="26" width="26" alt="check">
+          <span>Nos produits sont soigneusement sélectionnés pour vous offrir une qualité supérieure à chaque achat.</span>
+        </div>
+        <div class="warranties">
+          <img ngSrc="assets/svg/check-white.svg" height="26" width="26" alt="check">
+          <span>Nous nous engageons à fournir un service client exceptionnel, répondant à toutes vos attentes.</span>
+        </div>
+        <div class="warranties">
+          <img ngSrc="assets/svg/check-white.svg" height="26" width="26" alt="check">
+          <span>Notre équipe est dédiée à vous offrir les meilleures solutions pour tous vos besoins.</span>
+        </div>
+        <div class="warranties">
+          <img ngSrc="assets/svg/check-white.svg" height="26" width="26" alt="check">
+          <span>Découvrez des produits innovants et uniques qui se démarquent sur le marché.</span>
+        </div>
+        <div class="warranties">
+          <img ngSrc="assets/svg/check-white.svg" height="26" width="26" alt="check">
+          <span>Profitez d'une expérience d'achat fluide et agréable, avec des produits de qualité supérieure.</span>
+        </div>
+        <div class="warranties">
+          <img ngSrc="assets/svg/check-white.svg" height="26" width="26" alt="check">
+          <span>Nos prix compétitifs garantissent un excellent rapport qualité-prix pour tous nos clients.</span>
+        </div>
+        <div class="warranties">
+          <img ngSrc="assets/svg/check-white.svg" height="26" width="26" alt="check">
+          <span>Nous sommes là pour vous aider à chaque étape de votre parcours d'achat.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pt-5r"></div>
+</div>
