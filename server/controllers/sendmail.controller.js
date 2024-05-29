@@ -7,8 +7,8 @@ const transporter = nodemailer.createTransport(smtpTransport({
   port: 587,
   secure: false,
   auth: {
-    user: 'saidani_aziz@hotmail.com',
-    pass: 'solutiongroupnext1//'
+    user: 'pfe_2024@outlook.com',
+    pass: 'pfepfe2024'
   },
   logger: true,
   smtpServer: new SMTPServer({
@@ -20,7 +20,7 @@ exports.sendEmail = (req, res) => {
   const { recipients, subject, body } = req.body;
 
   const mailOptions = {
-    from: 'saidani_aziz@hotmail.com',
+    from: 'pfe_2024@outlook.com',
     to: recipients,
     subject: subject,
     text: body,

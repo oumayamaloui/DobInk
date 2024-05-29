@@ -9,8 +9,8 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false,
   auth: {
-    user: 'saidani_aziz@hotmail.com',
-    pass: 'solutiongroupnext1//', // Ensure this is correct and valid
+    user: 'pfe_2024@outlook.com',
+    pass: 'pfepfe2024', // Ensure this is correct and valid
   },
 });
 
@@ -55,7 +55,7 @@ exports.resetPassword = async (req, res) => {
     // Update the reset link to include '/api/auth'
     const resetLink = `${req.protocol}://${req.get('host')}/api/auth/reset/${resetToken}`;
     const mailOptions = {
-      from: 'saidani_aziz@hotmail.com',
+      from: 'pfe_2024@outlook.com',
       to: email,
       subject: 'Password Reset Request',
       text: `Click the following link to reset your password: ${resetLink}`,
@@ -278,7 +278,7 @@ exports.login = async (req, res) => {
       return res.status(401).json({error: 'Invalid email or password'});
     }
     if (user.status !== 'active') {
-      return res.status(403).json({ error: 'Votre compte est verrouillé' });
+      return res.status(403).json({error: 'Votre compte est verrouillé'});
     }
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {

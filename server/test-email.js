@@ -7,14 +7,14 @@ const transporter = nodemailer.createTransport({
   secure: false,
   auth: {
     user: 'pfe_2024@outlook.com',
-    pass: 'pfepfe2024', // Ensure this is correct and valid
+    pass: 'pfepfe2024',
   },
 });
 
 // Define the email options
 const mailOptions = {
-  from: 'saidani_aziz@hotmail.com',
-  to: 'azizsaidani1999@gmail.com', // You can test by sending it to your own email
+  from: 'pfe_2024@outlook.com\'',
+  to: 'exemple@gmail.com',
   subject: 'Test Email',
   text: 'This is a test email sent using Nodemailer',
 };

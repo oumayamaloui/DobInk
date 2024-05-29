@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AzizSaidani/PrintMe.git"
+    "url": "git+https://github.com/oumayamaloui/DobInk.git"
   },
   "keywords": [
     "server"
@@ -31,7 +31,7 @@
   "author": "Oumaima",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AzizSaidani/PrintMe/issues"
+    "url": "https://github.com/oumayamaloui/DobInk/issues"
   },
-  "homepage": "https://github.com/AzizSaidani/PrintMe#readme"
+  "homepage": "https://github.com/oumayamaloui/DobInk#readme"
 }
