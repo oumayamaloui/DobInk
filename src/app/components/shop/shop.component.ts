@@ -8,6 +8,7 @@ import {ProductDetailedComponent} from "../product-detailed/product-detailed.com
 import {CartModel} from "../../models/cart.model";
 import {CustomSnackbarComponent} from "../../custom-snackbar/custom-snackbar.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-shop',
@@ -17,7 +18,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
     ItemsComponent,
     ProductCardComponent,
     NgStyle,
-    ProductDetailedComponent
+    ProductDetailedComponent,
+    FormsModule
   ],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.scss'
@@ -27,6 +29,12 @@ export class ShopComponent implements AfterContentInit {
   selectedItem: ProductModel | undefined
   category = 'shops'
   filter = 'ahmed mo7sen'
+  min!: number
+  max!: number
+  im = false
+  ig = false
+  cg = false
+  md = false
 
 
   openSnackBar(message: string, action: string) {
@@ -98,4 +106,6 @@ export class ShopComponent implements AfterContentInit {
   }
 
 
+  protected readonly parseFloat = parseFloat;
+  protected readonly parseInt = parseInt;
 }
