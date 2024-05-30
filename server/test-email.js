@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
 // Define the email options
 const mailOptions = {
   from: 'pfe_2024@outlook.com\'',
-  to: 'exemple@gmail.com',
+  to: 'azizsaidani1999@gmail.com',
   subject: 'Test Email',
   text: 'This is a test email sent using Nodemailer',
 };

@@ -38,7 +38,6 @@ export class LoginComponent {
 
     this.authService.login(credentials, 'client').subscribe(
       (response) => {
-        console.log('Login successful:', response);
         window.location.assign('')
       },
       (error) => {

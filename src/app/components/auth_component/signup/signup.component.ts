@@ -67,7 +67,6 @@ export class SignupComponent {
 
       this.authService.register(userData).subscribe(
         (response) => {
-          console.log('Registration successful:', response);
 
           // Navigate to the login page
           const navigationExtras: NavigationExtras = {

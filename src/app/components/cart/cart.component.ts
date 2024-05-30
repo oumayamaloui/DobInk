@@ -57,7 +57,6 @@ export class CartComponent implements AfterContentInit {
       if (data) {
         user = JSON.parse(data).id
       }
-      console.log(user)
 
       const method = 'Paiement en espèce à la livraison'
       this.commande.addCommande(user, method).subscribe(() => {

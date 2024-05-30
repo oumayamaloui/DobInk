@@ -37,7 +37,6 @@ export class FactureComponent implements AfterContentInit {
     if (data) {
       user = JSON.parse(data).id
     }
-    console.log(user)
     const method = 'Paiement en ligne'
     this.commande.addCommande(user, method).subscribe(() => {
       this.shopService.deleteCart(user).subscribe(() => {

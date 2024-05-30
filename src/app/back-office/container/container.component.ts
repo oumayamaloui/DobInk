@@ -101,7 +101,6 @@ export class ContainerComponent implements AfterViewInit {
   loadcommande() {
     this.service.loadCommande().subscribe(res => {
       this.commandeList = res
-      console.log(this.commandeList[0])
 
     })
   }
@@ -132,7 +131,6 @@ export class ContainerComponent implements AfterViewInit {
         this.service.updateProduct(this.selectedProduct._id, updatedProductData).subscribe(
           (res) => {
             // Handle success response if needed
-            console.log('Product updated successfully:', res);
             this.loadProduct()
             this.openSnackBar('le produit a été modifier', 'fermer')
             this.add = ''
@@ -153,7 +151,6 @@ export class ContainerComponent implements AfterViewInit {
   deleteProduct(product: ProductModel) {
     if (product._id)
       this.service.deleteProduct(product._id).subscribe((res) => {
-        console.log('Product deleted successfully:', res);
         this.toggleOverlay()
         this.loadProduct()
       })
@@ -305,7 +302,6 @@ export class ContainerComponent implements AfterViewInit {
     if (emailAddresses && this.emailBody && this.emailSubject) {
       this.service.sendEmail(emailData).subscribe(
         (response) => {
-          console.log('Email sent successfully:', response);
 
         },
         (error) => {
@@ -334,7 +330,6 @@ export class ContainerComponent implements AfterViewInit {
     if (email && this.emailBody && this.emailSubject) {
       this.service.sendEmail(emailData).subscribe(
         (response) => {
-          console.log('Email sent successfully:', response);
 
 
         },

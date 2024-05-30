@@ -79,7 +79,7 @@ export class AddProductService {
   }
 
   sendEmail(emailData: { recipients: string, subject: string, body: string }) {
-    return this.http.post(`${this.apiUrl}/auth/send-email`, emailData);
+    return this.http.post<{ message: string }>(`${this.apiUrl}/auth/send-email`, emailData);
   }
 
 

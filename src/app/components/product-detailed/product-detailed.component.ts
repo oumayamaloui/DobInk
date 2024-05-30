@@ -63,7 +63,6 @@ export class ProductDetailedComponent implements AfterContentInit {
     if (this.name.length > 0 && this.email.length > 0 && this.phone.length > 0 && this.description.length > 0) {
       this.contactService.reclamation(reclamationData).subscribe(
         () => {
-          console.log('success')
           window.location.assign('')
         },
         error => {

@@ -26,7 +26,6 @@ export class LoginAdminComponent {
     }
     this.authService.login(credentials, 'admin').subscribe(
       (response) => {
-        console.log('Login successful:', response);
         window.location.assign('')
       },
       (error) => {
