@@ -39,19 +39,16 @@
       </div>
       <div class="dropDown">
         <div class="drop-down-item">
-          <span class="small-title hovered">Pages </span> <img class="cursor" ngSrc="assets/svg/chevron-down.svg"
-                                                               alt="chevron" height="12" width="12">
+          <span class="small-title hovered">Salon </span>
+          <img class="cursor" ngSrc="assets/svg/chevron-down.svg" alt="chevron" height="12" width="12">
           <img class="cursor-selected" ngSrc="assets/svg/chevron-down-orange.svg" height="12" alt="chevron" width="12">
           <div class="drop-down-list">
-            <div class="link-item" (click)="routing('about')">
-              À propos
-            </div>
-            <div class="link-item" (click)="routing('ourServices')">
-              Services
-            </div>
-            <div class="link-item" (click)="routing('faq')">
-              FAQ
-            </div>
+            <div class="link-item" (click)="routing('salon')">Accueil</div>
+            <div class="link-item" (click)="routing('salon/services')">Services</div>
+            <div class="link-item" (click)="routing('salon/gallery')">Galerie</div>
+            <div class="link-item" (click)="routing('salon/pricing')">Tarifs</div>
+            <div class="link-item" (click)="routing('salon/about')">À propos</div>
+            <div class="link-item" (click)="routing('salon/booking')">Réserver un RDV</div>
           </div>
         </div>
       </div>
@@ -65,6 +62,11 @@
       <img class="logo" src="assets/logo.png" alt="logo">
     </div>
     <div class="actions-section">
+      <div class="actions" (click)="routing('salon/booking')">
+        <img class="cursor" ngSrc="assets/svg/calendar.svg" alt="calendar" height="16" width="16">
+        <img class="cursor-selected" ngSrc="assets/svg/calendar.svg" alt="calendar" height="16" width="16">
+        <span class="small-title">Réserver</span>
+      </div>
       @if (!userName()) {
         <div class="actions" (click)="routing('login')">
           <img class="cursor" ngSrc="assets/svg/login.svg" alt="chevron" height="16" width="16">

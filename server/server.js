@@ -8,6 +8,7 @@ const authRoutes = require('./routes/auth.routes');
 const visitorRoutes = require('./routes/visitor.routes');
 const productRoutes = require('./routes/product.routes');
 const subscriptionRoutes = require('./routes/subscription.routes');
+const appointmentRoutes = require('./routes/appointment.routes');
 
 
 // Middleware
@@ -20,6 +21,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/visitor', visitorRoutes);
 app.use('/api/product', productRoutes);
 app.use('/api/subscription', subscriptionRoutes);
+app.use('/api/appointments', appointmentRoutes);
 
 
 // Connect to MongoDB

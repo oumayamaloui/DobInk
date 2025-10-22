@@ -1,0 +1,22 @@
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold">Tarifs</h2>
+    <p class="text-muted">Des offres claires et transparentes.</p>
+  </div>
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let p of [
+      {t:'Essentiel',price:'149 DH',desc:'Coiffure + Brushing'},
+      {t:'Premium',price:'299 DH',desc:'Coloration + Soin'},
+      {t:'VIP',price:'499 DH',desc:'Make-up + Coiffure + Soin'}
+    ]">
+      <div class="card h-100 text-center">
+        <div class="card-body">
+          <h5 class="card-title">{{ p.t }}</h5>
+          <h3 class="fw-bold mb-3">{{ p.price }}</h3>
+          <p class="text-muted">{{ p.desc }}</p>
+          <a class="btn btn-vip" routerLink="/salon/booking">Réserver</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

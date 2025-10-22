@@ -137,3 +137,16 @@ body {
     justify-content: flex-end;
   }
 }
+
+/* VIP luminous theme tweaks */
+.vip-bg-dark {
+  background: linear-gradient(135deg, #0d0d0f 0%, #16161a 100%);
+}
+.vip-glow {
+  box-shadow: 0 0 32px rgba(255, 215, 0, 0.25);
+}
+.vip-text-gradient {
+  background: linear-gradient(90deg, #ffd700, #ff77cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
