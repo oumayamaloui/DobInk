@@ -1,0 +1,52 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <h2 class="fw-bold mb-4 text-center">Réserver un Rendez‑vous</h2>
+      <form [formGroup]="form" (ngSubmit)="submit()" class="card p-4 shadow-sm border-0">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Nom complet</label>
+            <input type="text" class="form-control" formControlName="name">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Téléphone</label>
+            <input type="tel" class="form-control" formControlName="phone">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">E‑mail (optionnel)</label>
+            <input type="email" class="form-control" formControlName="email">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Service</label>
+            <select class="form-select" formControlName="service">
+              <option value="" disabled selected>Choisir un service</option>
+              <option>Coiffure</option>
+              <option>Coloration</option>
+              <option>Maquillage</option>
+              <option>Manucure</option>
+              <option>Massage</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Date</label>
+            <input type="date" class="form-control" formControlName="date">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Heure</label>
+            <input type="time" class="form-control" formControlName="time">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Note</label>
+            <textarea rows="3" class="form-control" formControlName="note" placeholder="Vos préférences..."></textarea>
+          </div>
+        </div>
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn-vip px-4" [disabled]="submitting">{{ submitting ? 'Envoi...' : 'Confirmer la réservation' }}</button>
+        </div>
+        <div *ngIf="submitted" class="alert alert-success mt-3 mb-0" role="alert">
+          Votre demande a été envoyée. Nous vous contacterons pour confirmation.
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

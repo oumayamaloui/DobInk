@@ -14,6 +14,12 @@ import {authGuard, authGuardConnected} from "./auth-guard/auth.guard";
 import {LoginAdminComponent} from "./back-office/login/login-admin/login-admin.component";
 import {ProductDetailedComponent} from "./components/product-detailed/product-detailed.component";
 import {FactureComponent} from "./facture/facture.component";
+import { SalonHomeComponent } from './salon/home/salon-home.component';
+import { SalonServicesComponent } from './salon/services/salon-services.component';
+import { SalonGalleryComponent } from './salon/gallery/salon-gallery.component';
+import { SalonPricingComponent } from './salon/pricing/salon-pricing.component';
+import { SalonAboutComponent } from './salon/about/salon-about.component';
+import { SalonBookingComponent } from './salon/booking/salon-booking.component';
 
 export const routes: Routes = [
   //** Client **//
@@ -31,6 +37,14 @@ export const routes: Routes = [
   {path: 'about', component: AboutUsComponent, canActivate: [authGuard]},
   {path: 'bill', component: FactureComponent, canActivate: [authGuard]},
   {path: 'client/profile', component: SettingsComponent},
+
+  // Salon site
+  {path: 'salon', component: SalonHomeComponent},
+  {path: 'salon/services', component: SalonServicesComponent},
+  {path: 'salon/gallery', component: SalonGalleryComponent},
+  {path: 'salon/pricing', component: SalonPricingComponent},
+  {path: 'salon/about', component: SalonAboutComponent},
+  {path: 'salon/booking', component: SalonBookingComponent},
 
 
   //** Admin **//

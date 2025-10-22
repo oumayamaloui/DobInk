@@ -1,0 +1,23 @@
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold">Nos Services</h2>
+    <p class="text-muted">Une sélection de soins haut de gamme.</p>
+  </div>
+  <div class="row g-4">
+    <div class="col-md-6 col-lg-4" *ngFor="let s of [
+      {t:'Coiffure',d:'Coupe, brushing, chignon, soins.'},
+      {t:'Coloration',d:'Balayage, mèches, gloss.'},
+      {t:'Maquillage',d:'Jour, soir, mariée.'},
+      {t:'Esthétique',d:'Épilation, soins visage.'},
+      {t:'Onglerie',d:'Semi-permanent, gel.'},
+      {t:'Massage',d:'Relaxant, tonifiant.'}
+    ]">
+      <div class="card vip-card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ s.t }}</h5>
+          <p class="card-text text-muted">{{ s.d }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
