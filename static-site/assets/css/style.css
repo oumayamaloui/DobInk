@@ -1,0 +1,194 @@
+/* VIP Luminous theme for Salon site */
+:root {
+  --brand-gold: #d4af37;
+  --brand-gold-2: #c7a048;
+  --brand-dark: #0b0f14;
+  --brand-text: #1d1f24;
+  --brand-muted: #6c757d;
+  --brand-light: #ffffff;
+  --brand-cream: #f8f5ef;
+  --shadow-lg: 0 20px 40px rgba(0,0,0,.12);
+  --shadow-sm: 0 8px 20px rgba(0,0,0,.08);
+}
+
+html, body {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, "Noto Sans", 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  color: var(--brand-text);
+  background: var(--brand-light);
+}
+
+h1, h2, h3, .display-1, .display-2, .display-3 {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  letter-spacing: .3px;
+}
+
+.navbar {
+  background: rgba(255,255,255,.75) !important;
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  box-shadow: var(--shadow-sm);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+
+.nav-link {
+  position: relative;
+  font-weight: 500;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: .5rem;
+  right: .5rem;
+  bottom: .3rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand-gold), var(--brand-gold-2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.btn-gold {
+  --bs-btn-color: #0b0f14;
+  --bs-btn-bg: var(--brand-gold);
+  --bs-btn-border-color: var(--brand-gold);
+  --bs-btn-hover-bg: var(--brand-gold-2);
+  --bs-btn-hover-border-color: var(--brand-gold-2);
+  --bs-btn-focus-shadow-rgb: 212, 175, 55;
+}
+
+.badge-gold {
+  background: linear-gradient(90deg, var(--brand-gold), var(--brand-gold-2));
+  color: #0b0f14;
+}
+
+.hero {
+  --hero-bg: url('../images/banner-t-shirt.jpg');
+  position: relative;
+  min-height: 70vh;
+  display: grid;
+  place-items: center;
+  padding: 6rem 1rem;
+  color: #fff;
+  background-image: linear-gradient(rgba(9,11,15,.4), rgba(9,11,15,.5)), var(--hero-bg);
+  background-size: cover;
+  background-position: center;
+}
+
+.hero--small {
+  min-height: 40vh;
+  padding: 4rem 1rem;
+}
+
+.hero .lead {
+  color: #e9ecef;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(90deg, #fff, #fff, var(--brand-gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: .6rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  width: 120px;
+  margin-inline: auto;
+  background: linear-gradient(90deg, var(--brand-gold), var(--brand-gold-2));
+  border-radius: 2px;
+}
+
+.card-lift {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.shadow-gold {
+  box-shadow: 0 10px 30px rgba(212,175,55,.25);
+}
+
+.icon-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, rgba(212,175,55,.2), rgba(199,160,72,.25));
+  color: var(--brand-gold);
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: .75rem;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(11,15,20,.35), rgba(11,15,20,0));
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+
+.gallery-item:hover::after {
+  opacity: 1;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--brand-gold);
+  box-shadow: 0 0 0 .25rem rgba(212,175,55,.25);
+}
+
+.footer {
+  background: linear-gradient(180deg, #0b0f14, #0e1319);
+  color: #adb5bd;
+}
+.footer a {
+  color: #e9d9a8;
+  text-decoration: none;
+}
+.footer a:hover { color: #fff; }
+
+.small, small { color: var(--brand-muted); }
