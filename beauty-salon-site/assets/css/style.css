@@ -1,0 +1,104 @@
+/* Luminous VIP theme */
+:root {
+  --vip-gold: #d4af37;
+  --vip-rose: #ffedf6;
+  --vip-white: #ffffff;
+  --vip-black: #0c0b10;
+  --vip-silver: #c0c7d1;
+  --shadow: 0 20px 40px rgba(0,0,0,.15);
+}
+
+html, body {
+  background: linear-gradient(135deg, #ffffff 0%, #fff7fb 35%, #f5faff 100%);
+  color: #222;
+}
+
+.navbar {
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, .75) !important;
+  box-shadow: var(--shadow);
+}
+.navbar .nav-link, .navbar-brand { color: #111 !important; }
+.navbar .btn-vip {
+  background: var(--vip-gold);
+  color: var(--vip-black);
+  border: none;
+  font-weight: 600;
+}
+.navbar .btn-vip:hover { filter: brightness(1.05); }
+
+.hero {
+  min-height: 80vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(1200px 500px at 80% 10%, rgba(212,175,55,0.15), transparent),
+              radial-gradient(900px 500px at 20% 0%, rgba(255,237,246,0.6), transparent),
+              radial-gradient(800px 400px at 50% 100%, rgba(192,199,209,0.35), transparent);
+}
+
+.glass-card {
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.6);
+}
+
+.section-title {
+  font-weight: 800;
+  letter-spacing: .5px;
+  position: relative;
+  display: inline-block;
+}
+.section-title:after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -8px;
+  width: 60%; height: 3px;
+  background: linear-gradient(90deg, var(--vip-gold), transparent);
+}
+
+.badge-gold { background: var(--vip-gold); color: var(--vip-black); }
+.text-gold { color: var(--vip-gold) !important; }
+.border-gold { border-color: var(--vip-gold) !important; }
+
+.footer {
+  background: #0e0e12;
+  color: var(--vip-silver);
+}
+.footer a { color: var(--vip-gold); }
+
+.form-control:focus, .form-select:focus {
+  box-shadow: 0 0 0 .2rem rgba(212,175,55,.25);
+  border-color: var(--vip-gold);
+}
+
+.btn-vip-lg {
+  background: linear-gradient(135deg, #ffe585, var(--vip-gold));
+  color: var(--vip-black);
+  border: none;
+  padding: .9rem 1.4rem;
+  font-weight: 700;
+  border-radius: 14px;
+}
+.btn-outline-vip {
+  border: 2px solid var(--vip-gold);
+  color: #111;
+}
+.btn-outline-vip:hover { background: var(--vip-gold); color: var(--vip-black); }
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+.gallery-item img {
+  transition: transform .5s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.pricing-card {
+  border: 1px solid rgba(0,0,0,.05);
+}
