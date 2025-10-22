@@ -1,0 +1,43 @@
+/* VIP Luminous Theme */
+:root{
+  --vip-bg:#0b0f1a; /* deep night blue */
+  --vip-surface:#121a2b;
+  --vip-card:#0e1524;
+  --vip-primary:#c7a76c; /* champagne gold */
+  --vip-primary-2:#f3e5c2; /* pale gold */
+  --vip-accent:#77e6ff; /* luminous cyan accent */
+  --vip-text:#eef1f7;
+  --vip-muted:#94a3b8;
+  --vip-shadow:0 10px 25px rgba(0,0,0,.45), 0 0 60px rgba(119,230,255,.08);
+  --blur: saturate(140%) blur(6px);
+}
+
+html,body{background:radial-gradient(1200px 600px at 70% -10%,rgba(119,230,255,.08),transparent 50%),
+           radial-gradient(900px 500px at -10% 40%,rgba(199,167,108,.12),transparent 60%),
+           var(--vip-bg);
+  color:var(--vip-text);
+}
+
+.navbar{backdrop-filter:var(--blur); background:linear-gradient( to bottom, rgba(14,21,36,.75), rgba(14,21,36,.35)); box-shadow:var(--vip-shadow);}
+.nav-link,.navbar-brand{color:var(--vip-text)!important}
+.nav-link:hover{color:var(--vip-primary)!important}
+.btn-vip{color:#0b0f1a; background:linear-gradient(135deg,var(--vip-primary),var(--vip-primary-2)); border:none; box-shadow:0 6px 18px rgba(199,167,108,.35)}
+.btn-vip:hover{filter:brightness(1.05)}
+
+.hero{
+  position:relative; overflow:hidden; border-radius:20px; box-shadow:var(--vip-shadow);
+  background: url('../img/hero.webp') center/cover no-repeat, linear-gradient(180deg,rgba(11,15,26,.4),rgba(11,15,26,.9));
+  height:72vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:2rem;
+}
+.hero .badge-vip{background:rgba(119,230,255,.14); color:var(--vip-accent); border:1px solid rgba(119,230,255,.35);}
+.hero h1{font-weight:800; letter-spacing:.5px; text-shadow:0 6px 30px rgba(0,0,0,.6)}
+.hero p{color:var(--vip-muted)}
+.card{background:linear-gradient(180deg, rgba(18,26,43,.8), rgba(11,15,26,.9)); border:1px solid rgba(255,255,255,.06); box-shadow:var(--vip-shadow)}
+.card-title{color:var(--vip-primary)}
+.section-title{color:var(--vip-primary); letter-spacing:.12em; text-transform:uppercase; font-weight:700}
+.footer{background:linear-gradient(0deg, rgba(11,15,26,1), rgba(11,15,26,.6)); border-top:1px solid rgba(255,255,255,.06)}
+.form-control, .form-select{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); color:var(--vip-text)}
+.form-control:focus, .form-select:focus{border-color:var(--vip-primary); box-shadow:0 0 0 .25rem rgba(199,167,108,.2)}
+.badge-service{background:rgba(199,167,108,.12); color:var(--vip-primary); border:1px solid rgba(199,167,108,.4)}
+.gallery img{border-radius:14px; box-shadow:var(--vip-shadow)}
+.divider{height:1px; background:linear-gradient(90deg, transparent, rgba(199,167,108,.45), transparent);}
