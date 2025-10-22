@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Réserver — Lumière VIP</title>
+  <meta name="description" content="Réservez votre rendez-vous au salon Lumière VIP.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="assets/img/logo.png" alt="Lumière VIP" width="32" height="32" onerror="this.onerror=null;this.src='assets/img/logo.jpg'">
+        <strong>Lumière VIP</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="galerie.html">Galerie</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="btn btn-vip ms-lg-2" href="reservation.html">Réserver</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5">
+    <h1 class="section-title mb-4">Réserver un rendez-vous</h1>
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <form id="bookingForm" class="glass-card p-4 p-lg-5">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Nom complet *</label>
+              <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Téléphone *</label>
+              <input type="tel" name="phone" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Email</label>
+              <input type="email" name="email" class="form-control" placeholder="optionnel">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Service *</label>
+              <select name="service" class="form-select" required>
+                <option value="">Choisir…</option>
+                <option>Coiffure & Styling</option>
+                <option>Soins du visage</option>
+                <option>Manucure & Pédicure</option>
+                <option>Massage & Bien-être</option>
+                <option>Make-up & Événements</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Date *</label>
+              <input type="date" name="date" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Heure *</label>
+              <input type="time" name="time" class="form-control" required>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Message</label>
+              <textarea name="message" class="form-control" rows="4" placeholder="Précisions, préférences…"></textarea>
+            </div>
+            <div class="col-12 d-grid d-sm-flex gap-3 mt-2">
+              <button class="btn btn-vip-lg" type="submit">Envoyer la demande</button>
+              <a class="btn btn-outline-vip" href="services.html">Voir nos services</a>
+            </div>
+          </div>
+          <p class="small text-secondary mt-3 m-0">Nous confirmons chaque demande par téléphone ou email.</p>
+        </form>
+      </div>
+      <div class="col-lg-5">
+        <div class="glass-card p-4 h-100">
+          <h5 class="fw-bold mb-3">Infos & disponibilités</h5>
+          <ul class="list-unstyled small mb-4">
+            <li>• Lun–Sam: 09:00–19:00</li>
+            <li>• Dimanche: Sur demande</li>
+            <li>• Adresse: Centre-ville, proche tram</li>
+          </ul>
+          <p class="small">Astuce: choisissez des horaires en semaine pour plus de disponibilité.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer pt-5 mt-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <img src="assets/img/logo.png" width="28" height="28" alt="Lumière VIP" onerror="this.onerror=null;this.src='assets/img/logo.jpg'">
+            <strong class="text-gold">Lumière VIP</strong>
+          </div>
+          <small>© <span data-year></span> Tous droits réservés.</small>
+        </div>
+        <div class="col-md-4">
+          <h6 class="text-gold">Horaires</h6>
+          <ul class="list-unstyled small m-0">
+            <li>Lun–Sam: 09:00–19:00</li>
+            <li>Dimanche: Sur rendez-vous</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h6 class="text-gold">Contact</h6>
+          <ul class="list-unstyled small m-0">
+            <li>Tél: 06 12 34 56 78</li>
+            <li>Email: contact@lumiere-vip.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center small text-secondary py-3">Fait avec Bootstrap 5</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
